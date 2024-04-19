@@ -52,8 +52,8 @@ const[user,setUser]=useState(0)
       setLoaderVisible(true);
 
       // Make an actual API request to your backend
-      const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict', {
-      //const response=await fetch('https://carefully-fond-pheasant.ngrok-free.app/predict',{ 
+      // const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict', {
+      const response=await fetch('https://carefully-fond-pheasant.ngrok-free.app/predict',{ 
       method: 'POST',
         body: formData,
       });
@@ -185,7 +185,7 @@ createImage(imageData)
     } else if (PredictedShot === 'Sweep') {
       description = 'The sweep shots are cross-batted shots played on the front foot, usually by kneeling on one knee.';
       link = '/Shotcontent/Sweep';
-    }else if (PredictedShot === 'cut-shot') {
+    }else if (PredictedShot === 'Cut-Shot') {
       description = 'Cuts shots are basically cross-batted shots played at a short delivery.';
       link = '/Shotcontent/Cut';}
      else {

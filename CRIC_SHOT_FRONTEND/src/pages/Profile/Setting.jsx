@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'; // Add missing imports
 import SideBar from '../../components/dashboard/Sidebar';
 import { getCurrentUserDetail } from '../../auth';
 import { toast } from 'react-toastify';
@@ -20,7 +20,7 @@ function AccountDetailsForm({ username, email }) {
             id="username"
             value={username}
             readOnly={true}
-            className="mt-1 px-4 py-2 border rounded-md w-full bg-white dark:text-black"
+            className="mt-1 px-4 py-2 font-semibold border rounded-md w-full bg-white dark:text-black"
           />
         </div>
       </div>
@@ -33,7 +33,7 @@ function AccountDetailsForm({ username, email }) {
             id="email"
             value={email}
             readOnly={true}
-            className="mt-1 px-4 py-2 border rounded-md w-full bg-white dark:text-black"
+            className="mt-1 px-4 py-2 font-semibold border rounded-md w-full bg-white dark:text-black"
           />
         </div>
       </div>
@@ -42,17 +42,17 @@ function AccountDetailsForm({ username, email }) {
 }
 
 // Component for changing password
-function ChangePasswordForm() {
+function ChangePasswordForm({ user }) {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [user, setUser] = useState(null);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [show, setShow] = useState(false);
+  const [passwordType, setPasswordType] = useState('password');
 
-  useEffect(() => {
-    const currentUser = getCurrentUserDetail();
-    if (currentUser) {
-      setUser(currentUser);
-    }
-  }, []);
+  const togglePasswordVisibility = () => {
+    setShow(!show);
+    setPasswordType(show ? 'password' : 'text');
+  };
 
   const handleChangePassword = async (e) => {
     e.preventDefault(); // Prevent default form submission
@@ -62,18 +62,23 @@ function ChangePasswordForm() {
       return;
     }
 
+    if (newPassword !== confirmPassword) {
+      toast.error('New Password and Confirm Password do not match');
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:8080/api/v1/auth/users/${user.id}/change-password?oldPassword=${currentPassword}&newPassword=${newPassword}`, {
         method: 'POST',
       });
 
       if (!response.ok) {
-        toast.error("Incorrect Current Password!!!")
-      }
-      else{
-      toast.success('Password changed successfully');
-      setCurrentPassword('');
-      setNewPassword('');
+        toast.error("Incorrect Current Password!!!");
+      } else {
+        toast.success('Password changed successfully');
+        setCurrentPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
       }
     } catch (error) {
       toast.error(error.message);
@@ -96,12 +101,31 @@ function ChangePasswordForm() {
         </div>
         <div className="mb-4">
           <label htmlFor="newPassword" className="block text-sm font-semibold mb-2">New Password:</label>
+          <div className="relative">
+            <input
+              type={passwordType}
+              id="newPassword"
+              className="mt-1 px-4 py-2 border rounded-md w-full bg-white dark:text-black"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <button type="button" className="absolute right-3 top-3" onClick={togglePasswordVisibility}>
+              {show ? (
+                <FontAwesomeIcon icon={faEyeSlash} className="text-gray-600 dark:text-gray-400" />
+              ) : (
+                <FontAwesomeIcon icon={faEye} className="text-gray-600 dark:text-gray-400" />
+              )}
+            </button>
+          </div>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="confirmPassword" className="block text-sm font-semibold mb-2">Confirm Password:</label>
           <input
             type="password"
-            id="newPassword"
+            id="confirmPassword"
             className="mt-1 px-4 py-2 border rounded-md w-full bg-white dark:text-black"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </div>
         <button type="submit" onClick={handleChangePassword} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Change Password</button>
@@ -110,19 +134,28 @@ function ChangePasswordForm() {
   );
 }
 
-
 // Parent component that renders both forms
 function Setting() {
-  const [username, setUsername] = useState('exampleUser');
-  const [email, setEmail] = useState('example@example.com');
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const currentUser = getCurrentUserDetail();
+    if (currentUser) {
+      setUser(currentUser);
+    }
+  }, []);
 
   return (
     <div className="dark:bg-[#1C2222] bg-gray-100 min-h-screen flex justify-center items-center">
       <div className="flex mt-20">
         <SideBar />
         <div className="dark:text-white ml-10 p-10 max-w-3xl w-full mx-auto">
-          <AccountDetailsForm username={username} email={email} />
-          <ChangePasswordForm />
+          {user && (
+            <>
+              <AccountDetailsForm username={user.name} email={user.email} />
+              <ChangePasswordForm user={user} />
+            </>
+          )}
         </div>
       </div>
     </div>

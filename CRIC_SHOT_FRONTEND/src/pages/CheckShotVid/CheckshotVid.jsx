@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import defaultImage from '../../assets/pics/cam1.png';
@@ -19,6 +20,7 @@ function CheckshotVid() {
   const {videoData,setVideoData} = useVideoData();
   const { theme } = useTheme();
   const videoSource = theme === 'light' ? defaultImage : darkImage;
+  const navigate = useNavigate();
 
   //spring start
 
@@ -31,6 +33,15 @@ function CheckshotVid() {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  useEffect(() => {
+    const user = getCurrentUserDetail(); // Fetch user details
+    if (!user) {
+      navigate('/Signinup'); // Redirect to sign-in page if user is not logged in
+    }
+  }, [navigate]); // Include navigate in the dependency array
+  
+
 
   useEffect(()=>{
     if(videoData){
@@ -82,7 +93,8 @@ function CheckshotVid() {
       const formData = new FormData();
       formData.append('file', uploadedVideo);
       
-      const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict_video', {
+      // const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict_video', {
+        const response = await fetch(' https://carefully-fond-pheasant.ngrok-free.app/predict_video', {
         method: 'POST',
         body: formData,
       });

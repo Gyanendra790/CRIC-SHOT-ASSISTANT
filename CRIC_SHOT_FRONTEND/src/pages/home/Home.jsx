@@ -1,7 +1,8 @@
 // Home.jsx
 
 import React, { useState, useEffect } from 'react';
-import Banner from '../../components/banner';
+
+import Herosection from '../../components/Herosection'
 import Aboutcheck from '../../components/aboutckeck';
 import Aboutground from '../../components/aboutground';
 import Team from '../../components/team/team';
@@ -28,7 +29,7 @@ function Home() {
         <Preloader />
       ) : (
         <>
-          <Field />
+          <Herosection />
           <Aboutcheck />
           <Quote />
           <Aboutground />

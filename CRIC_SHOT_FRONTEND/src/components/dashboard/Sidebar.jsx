@@ -3,15 +3,25 @@ import { BsGearFill } from 'react-icons/bs';
 import { FaHandsHelping, FaUserCircle } from 'react-icons/fa';
 import { BiLogOutCircle } from "react-icons/bi";
 import { FiActivity } from "react-icons/fi";
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { IoChevronForwardCircleOutline } from "react-icons/io5";
 import { TbLayoutSidebarRightCollapseFilled } from "react-icons/tb";
+import { doLogout } from '../../auth'; // Import the logout function from your auth module
 
 const SideBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+   // Initialize useNavigate
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
+  };
+
+  // Logout handler
+  const handleLogout = () => {
+    doLogout(() => {
+      setSignedIn(false); // Update the signed-in state to false
+      
+    });
   };
 
   return (
@@ -26,22 +36,20 @@ const SideBar = () => {
         <Divider/>
         <SideBarIcon icon={<FaHandsHelping size="30" />} text="Help" to="/Help" />
         <Divider/>
-        <SideBarIcon icon={<BiLogOutCircle  size="30" />} text="Logout" />
+        <SideBarIcon icon={<BiLogOutCircle  size="30" />} text="Logout" to="/" onClick={handleLogout} />
       </div>
     </div>
   );
 };
 
-
 const SideBarButton = ({ onClick }) => (
   <button className="fixed top-1/4 dark:text-white left-1 transform -translate-y-1/2 md:hidden sidebar-button"  onClick={onClick}>
-    
     <TbLayoutSidebarRightCollapseFilled size="25" />
   </button>
 );
 
-const SideBarIcon = ({ icon, text ,to }) => (
-  <Link to={to} className="sidebar-icon group">
+const SideBarIcon = ({ icon, text ,to, onClick }) => (
+  <Link to={to} onClick={onClick} className="sidebar-icon group">
     {icon}
     <span className="sidebar-tooltip group-hover:scale-100">
       {text}

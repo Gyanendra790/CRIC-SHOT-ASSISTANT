@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const Welcome = () => {
+const Welcome = ({ userName }) => {
   // Get the current hour
   const currentHour = new Date().getHours();
 
@@ -64,7 +64,7 @@ const Welcome = () => {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold mb-1">{getGreeting()}, User 👋</h1>
+        <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-semibold mb-1">{getGreeting()},  {userName} 👋</h1>
         <p className="dark:text-indigo-200">Here is your profile information </p>
       </div>
     </div>

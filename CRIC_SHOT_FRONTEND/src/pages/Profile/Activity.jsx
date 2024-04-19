@@ -5,7 +5,7 @@ import ActivityVid from '../../components/history/ActivityVid';// Import the Act
 
 const Activity = () => {
   return (
-    <div className="dark:bg-[#1C2222] h-full bg-gray-100">
+    <div className="dark:bg-[#1C2222] min-h-screen bg-gray-100">
       <div className="mt-10vh"> {/* Adjusted margin-top */}
         <SideBar />
         <ActivityImg /> 

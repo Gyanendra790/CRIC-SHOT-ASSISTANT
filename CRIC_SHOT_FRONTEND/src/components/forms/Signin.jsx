@@ -58,10 +58,11 @@ setLoginDetail({
       doLogin(data,()=>{
         console.log("Login detail is saved to local storage")
       //redirect to user dashboard page
-         navigate("/Profile")
+         navigate("/");
+         window.location.reload();
       })
 
-    toast.success("Login Successfully")
+   // toast.success("Login Successfully")
   }).catch(error=>{
     console.log(error)
     toast.error("Invalid Credentials!!!")

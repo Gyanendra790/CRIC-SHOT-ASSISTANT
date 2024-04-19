@@ -170,7 +170,7 @@ const userId=user.id;
       <div className="flex mt-20 ml-2 md:ml-20 ">
         <SideBar />
         <div className="flex-grow p-8  ">
-          <Welcome />
+          <Welcome  userName={user.name}  />
           <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-8 mt-8">
             <div>
               <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center dark:text-white">Shots Played in Current Match</h2>
