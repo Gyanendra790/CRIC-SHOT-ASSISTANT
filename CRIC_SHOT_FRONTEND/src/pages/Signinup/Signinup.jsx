@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import SignInForm from './../../components/forms/Signin';
 import SignUpForm from './../../components/forms/Signup';
@@ -22,7 +21,7 @@ const Signinup = () => {
       <div className="forms-container dark:bg-[#1C2222] mt-8">
         <div className="signin-signup">
           {isSignUpMode ? (
-            <SignUpForm handleSignUp={handleSignUpClick} />
+            <SignUpForm handleSignUp={handleSignUpClick} handleSignIn={handleSignInClick} />
           ) : (
             <SignInForm handleSignIn={handleSignInClick} />
           )}

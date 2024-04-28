@@ -53,7 +53,8 @@ const[user,setUser]=useState(0)
 
       // Make an actual API request to your backend
       // const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict', {
-      const response=await fetch('https://carefully-fond-pheasant.ngrok-free.app/predict',{ 
+      // const response=await fetch('https://carefully-fond-pheasant.ngrok-free.app/predict',{ 
+        const response=await fetch('https://noble-gently-barnacle.ngrok-free.app/predict',{ 
       method: 'POST',
         body: formData,
       });

@@ -94,7 +94,8 @@ function CheckshotVid() {
       formData.append('file', uploadedVideo);
       
       // const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict_video', {
-        const response = await fetch(' https://carefully-fond-pheasant.ngrok-free.app/predict_video', {
+        // const response = await fetch(' https://carefully-fond-pheasant.ngrok-free.app/predict_video', {
+          const response = await fetch(' https://noble-gently-barnacle.ngrok-free.app/predict_video', {
         method: 'POST',
         body: formData,
       });

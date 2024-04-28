@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import { FaXTwitter } from "react-icons/fa6";
-
-
-import {  faInstagram  , faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Pic from '../../assets/pics/logo_3.png';
 
 function Footer() {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -19,16 +18,13 @@ function Footer() {
 
     if (emailRegex.test(email)) {
       // Email is in the correct format
-      setMessage('Thanks for subscribing!');
+      toast.success('Thanks for subscribing!');
     } else {
       // Email is not in the correct format
-      setMessage('Please enter a valid email address.');
+      toast.error('Please enter a valid email address.');
     }
 
-    // Clear the message after 2 seconds
-    setTimeout(() => {
-      setMessage('');
-    }, 2000);
+    setEmail('');
   };
 
   const scrollToTop = () => {
@@ -55,8 +51,6 @@ function Footer() {
           </a>
         </div>
 
-       
-
         {/* Newsletter subscription form */}
         <div className="flex-col w-full md:flex-row md:justify-between gap-4 dark:text-white">
           <form onSubmit={handleFormSubmit} className="flex-col sm:flex-row items-center gap-2">
@@ -81,9 +75,9 @@ function Footer() {
             </button>
           </form>
         </div>
-        {message && <div className="text-center mt-2 ">{message}</div>}
 
-        <hr className='mt-10 rounded bg-black dark:bg-gray-400 '></hr>
+        {/* Toast container */}
+        <ToastContainer />
 
         {/* Contact and Quick Links */}
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 mt-10 ">
@@ -108,7 +102,7 @@ function Footer() {
                 <a href="/Checkshot" className="text-black dark:text-white">CheckShot</a>
               </li>
               <li className='mt-4 font-semibold'>
-                <a href="/Shotcontent" className="text-black dark:text-white">AboutShot</a>
+                <a href="/Shotcontent" className="text-black dark:text-white">LearnShot</a>
               </li>
             </ul>
           </div>
@@ -122,13 +116,13 @@ function Footer() {
           </div>
         </div>
 
-        {/* Links */}
-      </div>
-
-      <hr className='mt-10 rounded bg-black dark:bg-gray-400 '></hr>
-      
-      <div className="mt-4 text-center">
-        <p>&copy; {new Date().getFullYear()} cricshotAI. All rights reserved.</p>
+        {/* Footer separator */}
+        <hr className='mt-10 rounded bg-black dark:bg-gray-400 '></hr>
+        
+        {/* Copyright */}
+        <div className="mt-4 text-center">
+          <p>&copy; {new Date().getFullYear()} cricshotAI. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );

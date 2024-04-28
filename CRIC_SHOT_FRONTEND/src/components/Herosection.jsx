@@ -5,6 +5,9 @@ import 'aos/dist/aos.css';
 import { FaVideo } from "react-icons/fa";
 import { FaFileImage } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa6";
+import bgpicl from '../assets/pics/bgpic4.png'
+import bgpicd from '../assets/pics/bgpic1.jpg'
+import useTheme from "../context/theme";
 
 const HeroSection = () => {
   
@@ -15,6 +18,8 @@ const HeroSection = () => {
   const [startTyping, setStartTyping] = useState(false);
  
   const bottomRef = useRef(null);
+  const { theme } = useTheme();
+  const pic = theme === "light" ? bgpicl : bgpicd;
 
   useEffect(() => {
     AOS.init({
@@ -77,23 +82,23 @@ const HeroSection = () => {
       </div>
       <div className="flex items-center mb-5vw mt-10">
         <div className="w-full items-center">
-          <div className="mx-auto text-black dark:text-white bg-[#1E1E1E] p-14 md:w-2/3 backdrop-filter backdrop-blur-lg bg-opacity-30 rounded-md mt-5 mb-10 ">
-            <div className="text-center">
-              <p className="lg:text-4xl font-semibold mb-2 py-2" data-aos="zoom-in">Discover the Innovation</p>
-              <div>
-                <p className="mb-6 lg:p-5 dark:text-white text-2xl font-semibold md:pl-4 pl-2" data-aos="zoom-in">
+          <div className="mx-auto text-cyan-200 dark:text-cyan-100  p-14 md:w-2/3 opacity-80  rounded-md mt-5 mb-10 " style={{ backgroundImage: `url(${pic})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+            <div className="text-center rounded-md  " style={{ backgroundColor: 'rgba(0, 38, 0, 0.8)' }} >
+            <p className="tracking-wider mb-6 lg:p-5  font-mono text-4xl font-extrabold md:pl-4 pl-2 " data-aos="zoom-in">
                   Check the shot
                 </p>
-              </div>
+              <p className="tracking-widest lg:text-4xl font-mono font-bold mb-2 py-2 " data-aos="zoom-in">Discover the Innovation</p>
+            
+             
               <div style={{ height: "50px", overflow: "hidden" }}>
-                <p className="lg:text-4xl font-semibold text-[#38393c] md:pl-4 pl-2">
+                <p className="lg:text-4xl font-semibold text-[#f0f4f2] dark:white md:pl-4 pl-2">
                   {text}
                 </p>
               </div>
             </div>
             <ul className="flex justify-center mt-4 space-x-4">
               <li className="">
-                <a href="/Checkshot" className="relative animate-pulse inline-flex items-center justify-center px-10 py-3 overflow-hidden font-mono font-medium tracking-tighter text-black dark:text-white bg-gray-200 dark:bg-gray-800  rounded-lg group">
+                <a href="/Checkshot" className="relative  inline-flex items-center justify-center px-10 py-3 overflow-hidden font-mono font-medium tracking-tighter text-black dark:text-white bg-gray-200 dark:bg-gray-800  rounded-lg group">
                   <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-emerald-400 rounded-full group-hover:w-56 group-hover:h-56"></span>
                   <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-500"></span>
                   <span className="relative"> <FaFileImage className="text-4xl" />
@@ -101,7 +106,7 @@ const HeroSection = () => {
                 </a>
               </li>
               <li className="">
-                <a href="/CheckshotVid" className="relative animate-pulse inline-flex items-center justify-center px-10 py-3 overflow-hidden font-mono font-medium tracking-tighter  text-black dark:text-white bg-gray-200 dark:bg-gray-800 rounded-lg group">
+                <a href="/CheckshotVid" className="relative  inline-flex items-center justify-center px-10 py-3 overflow-hidden font-mono font-medium tracking-tighter  text-black dark:text-white bg-gray-200 dark:bg-gray-800 rounded-lg group">
                   <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-emerald-400  rounded-full group-hover:w-56 group-hover:h-56"></span>
                   <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-500"></span>
                   <span className="relative"> <FaVideo className="text-4xl" />
