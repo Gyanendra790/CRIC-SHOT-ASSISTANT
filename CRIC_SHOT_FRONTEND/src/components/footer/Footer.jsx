@@ -40,13 +40,13 @@ function Footer() {
         {/* Social media icons container */}
         <div className="flex justify-center mb-6">
           <h2 className="mr-2 font-bold text-2xl p-3">Social Media</h2>
-          <a href="#" className="social-icon">
+          <a href="https://www.linkedin.com/in/umair98392/" className="social-icon">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a href="#" className="social-icon">
+          <a href="https://twitter.com/umair98392" className="social-icon">
             <FaXTwitter/>
           </a>
-          <a href="#" className="social-icon">
+          <a href="https://www.instagram.com/umair98392/" className="social-icon">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>
@@ -79,16 +79,18 @@ function Footer() {
         {/* Toast container */}
         <ToastContainer />
 
+        <hr className='mt-10 rounded bg-black dark:bg-gray-400 '></hr>
+
         {/* Contact and Quick Links */}
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 mt-10 ">
           <div className="mb-6">
             <h2 className="mb-2.5 font-bold uppercase text-xl">Contact Us</h2>
             <ul className="mb-0 list-none text-center">
               <li className='mt-4 font-semibold'>
-                <h4>Phone: +91 1234567890</h4>
+                <h4>Phone: +91 9839191428</h4>
               </li>
               <li className='mt-4 font-semibold'>
-                <h4>Email: info@example.com</h4>
+                <h4>Email: cricshotai@gmail.com</h4>
               </li>
             </ul>
           </div>

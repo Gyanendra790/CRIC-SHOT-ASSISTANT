@@ -17,7 +17,7 @@ function Aboutcheck() {
         data-aos="zoom-in" // Existing animation direction
         data-aos-duration="1000">
           <h2 className='text-3xl md:text-4xl font-semibold text-center md:text-left text-gray-800 dark:text-white '>
-            Cricket Posenet : AI Shot Recognition
+            Cricket PoseNet : AI Shot Assistant
           </h2>
           <p className='mt-6 text-gray-600 lg:text-lg dark:text-white text-center md:text-left'>
             Upload an image of a batsman in action, and our advanced AI algorithms will instantly analyze it to determine the precise shot played - whether it's a cover drive, square cut, or a powerful hook shot. Explore the artistry of cricketing shots like never before.

@@ -71,5 +71,16 @@ public class AuthController {
 		UserDto registeredUser=this.userService.registerNewUser(userDto);
 		return new ResponseEntity<UserDto>(registeredUser,HttpStatus.CREATED);
 	}
+	//  @PostMapping("/register")
+    // public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto) {
+    //     // Check if the email already exists
+    //     if (userService.existsByEmail(userDto.getEmail())) {
+    //         throw new ApiException("Email is already registered");
+    //     }
+    //     // Register the new user
+    //     UserDto registeredUser = userService.registerNewUser(userDto);
+    //     return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
+    // }
+
 
 }

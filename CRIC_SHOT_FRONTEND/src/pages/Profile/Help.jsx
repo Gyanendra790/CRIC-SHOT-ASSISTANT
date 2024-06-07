@@ -1,6 +1,7 @@
 import React from 'react';
 import SideBar from '../../components/dashboard/Sidebar';
-import ImageHowItWorks from '../../assets/pics/how.png';
+import ImageHowItWorks from '../../assets/pics/imagehow.png';
+import VideoHowItWorks from '../../assets/pics/videohow.png';
 import email from '../../assets/pics/email.png'
 
 
@@ -53,7 +54,7 @@ const Help = () => {
             <h3 className="text-lg font-semibold mb-2">How it Works:</h3>
             <p className="mb-6">Our video analysis algorithm processes each frame of the uploaded video to detect key events such as player actions, shot types, and field movements. It then compiles these events into a comprehensive analysis report.</p>
             <div className="flex justify-center">
-            <img src={ImageHowItWorks} alt="How Image Analysis Works" className="rounded-md shadow-md" />
+            <img src={VideoHowItWorks} alt="How Image Analysis Works" className="rounded-md shadow-md" />
             </div>
           </div>
         </div>

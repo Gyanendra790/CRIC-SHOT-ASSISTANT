@@ -2,9 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faLinkedin, faGithub,faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FaXTwitter } from "react-icons/fa6";
-import Img1 from '../../assets/pics/shri.jpg';
+import Img1 from '../../assets/pics/sri.jpg';
 import Img2 from '../../assets/pics/umair.jpg';
-
+import Img3 from '../../assets/pics/gyan.jpg';
 
 function TeamMember({ name, role, description, imageSrc, twitterLink, facebookLink, linkedInLink, githubLink }) {
   
@@ -75,7 +75,7 @@ function Team() {
           <TeamMember
             name="Mohd. Umair"
             role="ML Engineer"
-            description="Crafting digital experiences that delight users is my passion. Explore my work and get in touch!"
+            description="A Machine Learning Engineer dedicated to developing intelligent algorithms that transform data into actionable insights."
             imageSrc={Img2}
             twitterLink="https://twitter.com/umair98392"
             facebookLink="https://www.instagram.com/umair98392/"
@@ -85,8 +85,8 @@ function Team() {
            <TeamMember
             name="Gyanendra Shukla"
             role="Backend Engineer"
-            description="Crafting digital experiences that delight users is my passion. Explore my work and get in touch!"
-            imageSrc={Img2}
+            description="A backend developer specializing in creating robust and scalable APIs to power seamless digital experiences."
+            imageSrc={Img3}
             twitterLink="https://twitter.com/umair98392"
             facebookLink="https://www.instagram.com/umair98392/"
             linkedInLink="https://www.linkedin.com/in/umair98392/"

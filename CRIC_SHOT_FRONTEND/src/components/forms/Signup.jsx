@@ -130,7 +130,9 @@ const SignUp = ({ handleSignUp, handleSignIn }) => {
             </label>
           </div>
           <button type="submit" disabled={!isChecked} className=" mt-2 items-center justify-center bg-green-700 px-6 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-white  hover:border-gray-400 dark:hover:border-gray-500  hover:shadow-md transition duration-300">Sign Up to your account</button>
-          <div className="inline-flex items-center justify-center w-full">
+
+       
+          {/* <div className="inline-flex items-center justify-center w-full">
             <hr className="w-24 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
             <span className="font-medium text-gray-900 dark:text-white ">or</span>
             <hr className="w-24 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
@@ -145,7 +147,7 @@ const SignUp = ({ handleSignUp, handleSignIn }) => {
               <img className="w-6 h-6 mr-2" src={Git} loading="lazy" alt="Github logo" />
               <span>Sign Up with Github</span>
             </button>
-          </div>
+          </div> */}
 
           {showTermsModal && (
   <div className="fixed inset-0 flex items-center justify-center">

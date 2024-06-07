@@ -94,8 +94,8 @@ function CheckshotVid() {
       formData.append('file', uploadedVideo);
       
       // const response = await fetch('https://sturgeon-light-especially.ngrok-free.app/predict_video', {
-        // const response = await fetch(' https://carefully-fond-pheasant.ngrok-free.app/predict_video', {
-          const response = await fetch(' https://noble-gently-barnacle.ngrok-free.app/predict_video', {
+        const response = await fetch(' https://carefully-fond-pheasant.ngrok-free.app/predict_video', {
+          // const response = await fetch(' https://noble-gently-barnacle.ngrok-free.app/predict_video', {
         method: 'POST',
         body: formData,
       });
@@ -164,14 +164,14 @@ createVideo(videoData)
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-200 dark:bg-[#1C2222]">
+    <div className="min-h-screen flex justify-center items-center bg-gray-100 dark:bg-[#1C2222]">
       <main className="w-full max-w-screen-md p-2">
         <div className="text-center mb-6">
           <h1 className="text-3xl font-bold dark:text-white" data-aos="zoom-in">Cricket PoseNet: AI Shot Recognition</h1>
         </div>
 
         <label
-          className={`bg-gray-100 dark:bg-[#0e161a] border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 flex flex-col justify-center items-center cursor-pointer ${
+          className={`bg-gray-50 dark:bg-[#0e161a] border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 flex flex-col justify-center items-center cursor-pointer ${
             isDragging ? 'border-blue-500' : ''
           }`}
           onDragEnter={handleDragEnter}

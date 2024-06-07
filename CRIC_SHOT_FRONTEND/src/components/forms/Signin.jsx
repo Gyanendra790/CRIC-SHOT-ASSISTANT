@@ -113,6 +113,9 @@ setLoginDetail({
             </button>
           </div>
           <button type="submit" className=" mt-2 items-center justify-center bg-green-700 px-6 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-white  hover:border-gray-400 dark:hover:border-gray-500  hover:shadow-md transition duration-300">Sign in to your account</button>
+
+          
+{/*           
           <div className="inline-flex items-center justify-center w-full">
             <hr className="w-24 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
             <span className="font-medium text-gray-900 dark:text-white ">or</span>
@@ -120,7 +123,7 @@ setLoginDetail({
           </div>
 
           <div className="flex flex-col items-center mt-2">
-            {/* Buttons for sign in with Google and GitHub */}
+          
             <button type="button" className="flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-900 dark:hover:text-gray-400 hover:shadow-md transition duration-300">
               <img className="w-6 h-6 mr-2" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="Google logo" />
               <span>Sign in with Google</span>
@@ -131,7 +134,7 @@ setLoginDetail({
             </button>
           </div>
 
-         
+          */}
         </form>
       </div>
     </section>
